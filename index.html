@@ -4,13 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Changing Webpage</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            height: 100vh;
+            width: 100%;
+            transition: transform 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: white;
+            text-align: center;
+        }
+
+        #page1 {
+            background-color: red;
+        }
+
+        #page2 {
+            background-color: blue;
+        }
+
+        #page3 {
+            background-color: purple;
+        }
+    </style>
 </head>
 <body>
     <div class="page" id="page1"></div>
     <div class="page" id="page2"></div>
     <div class="page" id="page3"></div>
 
-    <script src="script.js"></script>
+    <script>
+        let currentIndex = 0;
+        const pages = document.querySelectorAll('.page');
+
+        // 添加点击事件监听
+        document.body.addEventListener('click', () => {
+            // 切换到下一个页面
+            currentIndex = (currentIndex + 1) % pages.length;
+            changePage();
+        });
+
+        // 改变页面显示
+        function changePage() {
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].style.transform = `translateY(-${currentIndex * 100}vh)`;
+            }
+        }
+    </script>
 </body>
 </html>
