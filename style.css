@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.page {
+    height: 100vh;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+#page1 {
+    background-color: red;
+}
+
+#page2 {
+    background-color: blue;
+}
+
+#page3 {
+    background-color: purple;
+}
+
